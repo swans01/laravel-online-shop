@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/signin', 'AuthController@SignIn')->name('signin');
+Route::get('/product', 'ProductController@ShowProduct')->name('product');
+Route::get('/order', 'OrderController@ShowOrder')->name('order');
+Route::get('/user', 'UserController@ShowUser')->name('user');
+
