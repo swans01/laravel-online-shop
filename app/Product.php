@@ -3,11 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    public function selectProduct(){
-        $products = Product::orderBy('created_at', 'desc')->get();
-        return $products;
-    }
+    use SoftDeletes;
+    protected $dates =['deleted_at'];
 }

@@ -11,7 +11,7 @@
 
         <!-- Styles -->
         <link href="{{ ('css/style.css') }}" rel="stylesheet">
-        
+
     </head>
     <body>
         <div class="flex-center">
@@ -23,26 +23,23 @@
                     <a style="margin-left: 145px" href="{{ route('logout') }}">Logout</a>
                     <div class="separator"></div>
                 </div>
-                <div>                    
-                    <table>
-                    <tr>
-                        <th style="width:30%">Name</th>
-                        <th style="width:40%">Email</th>
-                        <th style="width:30%">Action</th>
-                    </tr>
-                    @foreach($users as $user)
-                    <tr>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>
-                        <div style="display: flex">
-                        <a style="font-size: 13px; margin:0 0 0 5px" href="{{ route('deleteUser', ['user_id' => $user->id]) }}">Delete</a>
-                        </div>
-                        </td>
-                    </tr>
-                    @endforeach
-                    </table>
-                </div>
+                <div class="title">Create Form</div>
+                <form class="form_submit" action="{{ route('addProduct') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                    <label>Name</label>
+                    <input class="form_input" type="text" name="name" >
+            
+                    <label>Price</label>
+                    <input class="form_input" type="number" name="price" >
+
+                    <label>Code</label>
+                    <input class="form_input" type="text" name="code" >
+
+                    <label for="image">Image</label>
+                    <input style="margin-bottom:10px" type="file" name="image" class="form-control" id="image">
+            
+                    <input type="submit" class="btn_login" value="Submit">
+                </form>
             </div>
         </div>
     </body>

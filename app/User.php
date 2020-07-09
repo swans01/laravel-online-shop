@@ -4,12 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Model implements Authenticatable
 {
-    public function selectUser(){
-        $users = User::orderBy('created_at', 'desc')->get();
-        return $users;
-    }
     use \Illuminate\Auth\Authenticatable;
+    use SoftDeletes;
+    protected $dates =['deleted_at'];
 }
